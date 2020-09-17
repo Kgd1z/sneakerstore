@@ -8,7 +8,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import useLinking from "./navigation/useLinking";
 import HomeScreen from "./screens/HomeScreen";
-import nextScreen from "./screens/nextScreen";
+
 import ShoeDetailScreen from "./screens/ShoeDetailScreen";
 
 import ListScreen from "./components/ListScreen";
@@ -65,7 +65,7 @@ export default function App(props) {
             >
               <Stack.Navigator screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="HomeScreen" component={HomeScreen} />
-                <Stack.Screen name="nextScreen" component={nextScreen} />
+
                 <Stack.Screen name="ShoeDetail" component={ShoeDetailScreen} />
               </Stack.Navigator>
             </NavigationContainer>

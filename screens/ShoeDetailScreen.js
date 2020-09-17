@@ -58,14 +58,24 @@ export default function ShoeDetailScreen() {
             <Entypo name="info-with-circle" size={24} color="grey" />
           </View>
 
-          <View style={{ height: 200 }}>
+          <View style={{ height: 180 }}>
             <ScrollView
               scrollEventThrottle={16}
               showsVerticalScrollIndicator={false}
               style={{ height: 90 }}
             >
               <View style={{ flexDirection: "row" }}>
-                <View style={styles.sizes}></View>
+                <View style={styles.sizes}>
+                  <Text
+                    style={{
+                      alignSelf: "center",
+                      paddingTop: 25,
+                      fontSize: 20,
+                    }}
+                  >
+                    UK8
+                  </Text>
+                </View>
                 <View style={styles.sizes}></View>
                 <View style={styles.sizes}></View>
                 <View style={styles.sizes}></View>
@@ -73,7 +83,21 @@ export default function ShoeDetailScreen() {
             </ScrollView>
           </View>
         </View>
-        <Button title="Add to Bag" />
+        <View
+          style={{
+            backgroundColor: "black",
+            width: 350,
+            height: 60,
+            borderRadius: 20,
+            alignSelf: "center",
+            paddingTop: 20,
+            marginBottom: 25,
+          }}
+        >
+          <Text style={{ color: "white", alignSelf: "center", fontSize: 20 }}>
+            Add to bag
+          </Text>
+        </View>
         <SlidingUpPanel>
           <View style={styles.slider}>
             <View
