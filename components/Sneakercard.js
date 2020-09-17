@@ -23,6 +23,7 @@ export default function Sneakercard(props) {
           price: props.price,
           img: props.img,
           about: props.about,
+          sizes: props.sizes,
         });
         navigation.navigate("ShoeDetail");
       }}

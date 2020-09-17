@@ -65,20 +65,21 @@ export default function ShoeDetailScreen() {
               style={{ height: 90 }}
             >
               <View style={{ flexDirection: "row" }}>
-                <View style={styles.sizes}>
-                  <Text
-                    style={{
-                      alignSelf: "center",
-                      paddingTop: 25,
-                      fontSize: 20,
-                    }}
-                  >
-                    UK8
-                  </Text>
-                </View>
-                <View style={styles.sizes}></View>
-                <View style={styles.sizes}></View>
-                <View style={styles.sizes}></View>
+                {item.sizes.map((itemo) => {
+                  return (
+                    <View style={styles.sizes}>
+                      <Text
+                        style={{
+                          alignSelf: "center",
+                          paddingTop: 25,
+                          fontSize: 20,
+                        }}
+                      >
+                        {itemo}
+                      </Text>
+                    </View>
+                  );
+                })}
               </View>
             </ScrollView>
           </View>

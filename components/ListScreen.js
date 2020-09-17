@@ -26,6 +26,7 @@ export default function ListScreen() {
       img: require("../assets/images/blue.png"),
       about:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. dolor id sem.",
+      sizes: ["UK8", "UK9", "UK10"],
     },
     {
       name: "AirMAx 270",
@@ -34,6 +35,7 @@ export default function ListScreen() {
       img: require("../assets/images/air270.png"),
       about:
         "Lorem ipsum dolor sit amet,  A , viverra nunc vitae, facilisis odio.r varius elit, non lobortis mauris dolor id sem.",
+      sizes: ["UK7", "UK9", "UK11"],
     },
     {
       name: "Jordan 1",
@@ -42,6 +44,7 @@ export default function ListScreen() {
       img: require("../assets/images/jordan.png"),
       about:
         "Lorem ipsum dolor sit amet,et condimentum tristique, metus dolor varius elit, non lobortis mauris dolor id sem.",
+      sizes: ["UK8", "UK9", "UK10", "UK11"],
     },
   ];
   const navigation = useNavigation();
@@ -88,6 +91,7 @@ export default function ListScreen() {
               price={item.price}
               img={item.img}
               about={item.about}
+              sizes={item.sizes}
             />
           );
         })}
