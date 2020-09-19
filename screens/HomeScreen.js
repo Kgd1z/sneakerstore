@@ -1,16 +1,7 @@
-import * as React from "react";
-import {
-  Image,
-  Platform,
-  StyleSheet,
-  TextInput,
-  Text,
-  TouchableOpacity,
-  View,
-  SafeAreaView,
-} from "react-native";
+import * as React from 'react';
+import { Image, Platform, StyleSheet, TextInput, Text, TouchableOpacity, View, SafeAreaView } from 'react-native';
 
-import ListScreen from "../components/ListScreen.js";
+import ListScreen from '../components/ListScreen.js';
 
 export default function HomeScreen() {
   return (
@@ -25,7 +16,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#faf9f9",
+    backgroundColor: '#faf9f9',
     paddingLeft: 20,
     paddingRight: 0,
   },

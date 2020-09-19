@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest --watchAll",
-    "prettier": "prettier --ignore-path .eslintignore --single-quote --write '**/*.{tsx,ts,js}"
+    "prettier": "prettier --ignore-path .eslintignore --single-quote --write '**/*.{tsx,ts,js}'"
   },
   "jest": {
     "preset": "jest-expo"

@@ -1,17 +1,8 @@
-import * as React from "react";
-import {
-  Image,
-  Platform,
-  StyleSheet,
-  TextInput,
-  Text,
-  TouchableOpacity,
-  View,
-  SafeAreaView,
-} from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
-import { ItemsContext } from "../components/ItemsContext";
+import * as React from 'react';
+import { Image, Platform, StyleSheet, TextInput, Text, TouchableOpacity, View, SafeAreaView } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { ItemsContext } from '../components/ItemsContext';
 export default function Sneakercard(props) {
   const navigation = useNavigation();
   const { item, setCurrentItem } = React.useContext(ItemsContext);
@@ -25,7 +16,7 @@ export default function Sneakercard(props) {
           about: props.about,
           sizes: props.sizes,
         });
-        navigation.navigate("ShoeDetail");
+        navigation.navigate('ShoeDetail');
       }}
     >
       <View
@@ -40,10 +31,10 @@ export default function Sneakercard(props) {
         <Text style={styles.name}>{props.name}</Text>
         <AntDesign
           style={{
-            position: "absolute",
+            position: 'absolute',
             right: 20,
             top: 20,
-            color: "white",
+            color: 'white',
             fontSize: 30,
           }}
           name="hearto"
@@ -54,7 +45,7 @@ export default function Sneakercard(props) {
           style={{
             paddingLeft: 20,
             paddingBottom: 25,
-            color: "white",
+            color: 'white',
             fontSize: 17,
           }}
         >
@@ -68,7 +59,7 @@ export default function Sneakercard(props) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#337AFF",
+    backgroundColor: '#337AFF',
     height: 290,
     width: 250,
     borderRadius: 20,
@@ -78,14 +69,14 @@ const styles = StyleSheet.create({
     height: 130,
     width: 250,
 
-    transform: [{ rotate: "340deg" }],
+    transform: [{ rotate: '340deg' }],
   },
   name: {
     paddingLeft: 20,
     paddingTop: 20,
     paddingBottom: 10,
-    color: "white",
-    fontWeight: "bold",
+    color: 'white',
+    fontWeight: 'bold',
     fontSize: 21,
   },
 });
