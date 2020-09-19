@@ -9,13 +9,13 @@ import {
   View,
   SafeAreaView,
 } from "react-native";
-import { ImagePropTypes } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import {ImagePropTypes} from "react-native";
+import {AntDesign} from "@expo/vector-icons";
 
 export default function Sneakercardsmall(props) {
   return (
-    <View style={{ marginRight: 30 }}>
-      <Image style={{ width: 170, height: 85 }} source={props.img} />
+    <View style={{marginRight: 30}}>
+      <Image style={{width: 170, height: 85}} source={props.img} resizeMode="contain" />
       <View
         style={{
           backgroundColor: "#fff",
@@ -25,9 +25,7 @@ export default function Sneakercardsmall(props) {
           padding: 15,
         }}
       >
-        <Text style={{ fontSize: 18, paddingBottom: 5, fontWeight: "bold" }}>
-          {props.name}
-        </Text>
+        <Text style={{fontSize: 18, paddingBottom: 5, fontWeight: "bold"}}>{props.name}</Text>
         <Text>{props.price}</Text>
       </View>
       <AntDesign
