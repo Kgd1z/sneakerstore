@@ -3,6 +3,8 @@ import { Image, Platform, StyleSheet, TextInput, Text, TouchableOpacity, View, S
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { ItemsContext } from '../components/ItemsContext';
+import LikeButton from './LikeButton';
+import { FavoriteContext } from '../components/FavoriteContext';
 export default function Sneakercard(props) {
   const navigation = useNavigation();
   const { item, setCurrentItem } = React.useContext(ItemsContext);
@@ -28,8 +30,14 @@ export default function Sneakercard(props) {
           marginRight: 35,
         }}
       >
-        <Text style={styles.name}>{props.name}</Text>
-        <AntDesign
+        <View style={{ flexDirection: 'row' }}>
+          <Text style={styles.name}>{props.name}</Text>
+          <View style={{ position: 'absolute', right: 20, top: 20 }}>
+            <LikeButton color="white" />
+          </View>
+        </View>
+
+        {/* <AntDesign
           style={{
             position: 'absolute',
             right: 20,
@@ -40,7 +48,8 @@ export default function Sneakercard(props) {
           name="hearto"
           size={24}
           color="black"
-        />
+        /> */}
+
         <Text
           style={{
             paddingLeft: 20,

@@ -11,23 +11,40 @@ import {
   Button,
 } from 'react-native';
 import { Ionicons, Entypo } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useLinkProps } from '@react-navigation/native';
 import { ItemsContext } from '../components/ItemsContext';
+import { CartContext } from '../components/CartContext';
+import LikeButton from '../components/LikeButton';
+import { FavoriteContext } from '../components/FavoriteContext';
 import { ScrollView } from 'react-native-gesture-handler';
 import SlidingUpPanel from 'rn-sliding-up-panel';
+import MyProfileScreen from './MyProfileScreen';
+import HomeScreen from './HomeScreen';
 
 export default function ShoeDetailScreen() {
   const navigation = useNavigation();
   const { item, setCurrentItem } = React.useContext(ItemsContext);
+  const { favorites, addFavorite } = React.useContext(FavoriteContext);
+  const [isChecked, setChecked] = React.useState(false);
+  const { cart, addCart } = React.useContext(CartContext);
+
+  const toggle = () => {
+    setChecked(!isChecked);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={{ marginLeft: 0 }}>
         <View style={{ marginLeft: 20 }}>
           <View style={{ flexDirection: 'row' }}>
-            <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
+            <TouchableOpacity onPress={() => navigation.navigate('MyTabs')}>
               <Ionicons name="md-arrow-back" size={37} color="black" />
             </TouchableOpacity>
-            <Ionicons name="ios-heart-empty" size={35} color="black" style={{ marginLeft: 320 }} />
+            <View style={{ marginLeft: 310, marginTop: 4 }}>
+              <LikeButton color="black" size={40} />
+            </View>
+
+            {/* <Ionicons name="ios-heart-empty" size={35} color="black" style={{ marginLeft: 320 }} /> */}
           </View>
           <View>
             <Image resizeMode="contain" style={{ width: 360, height: 180, marginTop: 40 }} source={item.img} />
@@ -53,36 +70,67 @@ export default function ShoeDetailScreen() {
               <View style={{ flexDirection: 'row' }}>
                 {item.sizes.map((itemo) => {
                   return (
-                    <View style={styles.sizes}>
-                      <Text
-                        style={{
-                          alignSelf: 'center',
-                          paddingTop: 25,
-                          fontSize: 20,
-                        }}
-                      >
-                        {itemo}
-                      </Text>
-                    </View>
+                    <TouchableOpacity
+                      onPress={() => {
+                        if (!isChecked) {
+                          item.selectedSize = itemo;
+                          toggle();
+                        }
+                      }}
+                    >
+                      {!isChecked ? (
+                        <View style={styles.sizes}>
+                          <Text
+                            style={{
+                              alignSelf: 'center',
+                              paddingTop: 25,
+                              fontSize: 20,
+                            }}
+                          >
+                            {itemo}
+                          </Text>
+                        </View>
+                      ) : (
+                        <View style={styles.sizesSelected}>
+                          <Text
+                            style={{
+                              alignSelf: 'center',
+                              paddingTop: 25,
+                              fontSize: 20,
+                              color: 'white',
+                            }}
+                          >
+                            {itemo}
+                          </Text>
+                        </View>
+                      )}
+                    </TouchableOpacity>
                   );
                 })}
               </View>
             </ScrollView>
           </View>
         </View>
-        <View
-          style={{
-            backgroundColor: 'black',
-            width: 350,
-            height: 60,
-            borderRadius: 20,
-            alignSelf: 'center',
-            paddingTop: 20,
-            marginBottom: 25,
+        <TouchableOpacity
+          onPress={() => {
+            addCart(cart.concat(item));
           }}
         >
-          <Text style={{ color: 'white', alignSelf: 'center', fontSize: 20 }}>Add to bag</Text>
-        </View>
+          <View
+            style={{
+              backgroundColor: 'black',
+              width: 350,
+              height: 60,
+              borderRadius: 20,
+              alignSelf: 'center',
+              paddingTop: 20,
+              marginBottom: 25,
+            }}
+          >
+            <Text style={{ color: 'white', alignSelf: 'center', fontSize: 20 }}>Add to bag</Text>
+          </View>
+        </TouchableOpacity>
+
         <SlidingUpPanel>
           <View style={styles.slider}>
             <View
@@ -141,5 +189,17 @@ const styles = StyleSheet.create({
     width: 80,
     marginTop: 40,
     marginBottom: 5,
+  },
+  sizesSelected: {
+    borderColor: 'grey',
+    borderWidth: 2,
+    borderRadius: 20,
+    marginRight: 15,
+    height: 75,
+    width: 80,
+    marginTop: 40,
+    marginBottom: 5,
+    backgroundColor: 'black',
+    color: 'white',
   },
 });
